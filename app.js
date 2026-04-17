@@ -2,12 +2,16 @@ const express = require('express')
 
 const app = express()
 
+var swaggerUI = require('swagger-ui-express')
+var swaggerFile = require('./swagger_output.json')
+
+
 
 app.get('/', (req, res) =>{
     res.send('Opa!')
 })
 
-app.get('/sobre', (req, res) =>{
+app.get('/sobre', (req, res) =>{    
     res.send('Aqui a rota do sobre!')
 })
 
@@ -26,6 +30,8 @@ app.put('/produtos', (req, res) =>{
 app.delete('/produtos', (req, res) =>{
     res.send('Aqui a rota para excluir produto!')
 })
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile))
 
 app.use(express.static('public'))
 
