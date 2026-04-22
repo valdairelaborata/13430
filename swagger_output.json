@@ -11,17 +11,7 @@
     "http"
   ],
   "paths": {
-    "/pedidos": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/produtos": {
+    "/produtos/": {
       "get": {
         "description": "",
         "responses": {
@@ -31,22 +21,6 @@
         }
       },
       "post": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
         "description": "",
         "responses": {
           "200": {
