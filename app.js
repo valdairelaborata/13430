@@ -6,13 +6,8 @@ var swaggerUI = require('swagger-ui-express')
 var swaggerFile = require('./swagger_output.json')
 
 
-
-app.get('/', (req, res) =>{
-    res.send('Opa!')
-})
-
-app.get('/sobre', (req, res) =>{    
-    res.send('Aqui a rota do sobre!')
+app.get('/pedidos', (req, res) =>{
+    res.send('Aqui a rota para consular pedidos!')
 })
 
 app.get('/produtos', (req, res) =>{
