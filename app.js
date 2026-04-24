@@ -2,6 +2,8 @@ const express = require('express')
 
 const app = express()
 
+const connectDB = require('./config/database')
+
 var routeProduto = require('./routes/produto')
 
 var swaggerUI = require('swagger-ui-express')
@@ -27,6 +29,10 @@ var swaggerFile = require('./swagger_output.json')
 // app.delete('/produtos', (req, res) =>{
 //     res.send('Aqui a rota para excluir produto!')
 // })
+
+connectDB();
+
+app.use(express.json())
 
 app.use('/produtos', routeProduto)
 
