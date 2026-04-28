@@ -44,6 +44,8 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerFile))
 
 app.use(express.static('public'))
 
-app.listen(3000, ()=>{
-    console.log('Servidor express ok!')
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
