@@ -49,6 +49,10 @@ exports.buscar = async (req, res) =>{
         const { codigo } = req.params;
         const produto = await Produto.findOne({ codigo });
 
+        if (!produto) {
+            return res.status(404).send('Produto não encontrado!');
+        }
+
         res.status(200).send({
             mensagem: 'Produto encontrado com sucesso!',
             produto
@@ -67,16 +71,20 @@ exports.alterar = async (req, res) =>{
         const { codigo } = req.params;
         const { nome } = req.body;
 
+        if (!codigo || !nome    ) {
+            return res.status(400).send('Nome e código são obrigatórios!');
+        }
+
         const produto = await Produto.findOneAndUpdate({ codigo }, { nome }, { new: true });
 
-        res.status(200).send({
+        res.status(201).send({
             mensagem: 'Produto alterado com sucesso!',
             produto
         });
 
     } catch (error) {
         console.error(error)
-        res.status(400).send('Erro ao alterar o produto!')
+        res.status(500).send('Erro ao alterar o produto!')
     }
 
 }
