@@ -8,7 +8,7 @@
   "host": "one3430-1.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/produtos/": {
