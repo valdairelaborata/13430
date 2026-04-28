@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { required } = require('nodemon/lib/config');
+
 
 const produtoSchema = new mongoose.Schema({
   codigo: { type: String, required: [true, 'Código é obrigatório'], unique: true },
