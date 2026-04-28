@@ -7,6 +7,10 @@ exports.incluir = async (req, res) =>{
         
         const { codigo, nome } = req.body
 
+        if(!codigo || !nome){
+            return res.status(400).send('Código e nome são obrigatórios!')
+        }   
+
         const produto = new Produto({
             codigo,
             nome
@@ -14,16 +18,15 @@ exports.incluir = async (req, res) =>{
 
         await produto.save();
 
+        res.status(201).send({
+            mensagem: 'Produto incluído com sucesso!',
+            produto
+        });
         
     } catch (error) {
         console.error(error)
-        res.status(400).send('Erro ao incluir o produto!')
+        res.status(500).send('Erro ao incluir o produto!')
     }
-  
-    
-
-    res.send('Incluir o produto...')
-
 }
 
 exports.listar = async (req, res) =>{   

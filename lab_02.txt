@@ -1,0 +1,15 @@
+1. Identificação única obrigatória
+Cada contato deve possuir um código único (codigo), que:
+
+2. Validação de dados obrigatórios
+Os campos essenciais devem ser validados:
+nome → obrigatório e não vazio
+telefone → obrigatório
+endereco → opcional, mas se informado não pode ser vazio
+
+4. Tratamento de erros
+A API deve retornar respostas adequadas:
+404 → contato não encontrado
+400 → dados inválidos
+201 → criado com sucesso
+200 → operação bem-sucedida
