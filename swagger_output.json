@@ -4,8 +4,8 @@
     "version": "1.0.0",
     "title": "REST API",
     "description": ""
-  }, 
-  "host": "https://one3430-1.onrender.com/",
+  },   
+  "host": "one3430-1.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
