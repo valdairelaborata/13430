@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "REST API",
+    "title": "E-commerce API",
     "description": ""
   },
-  "host": "localhost:3000",
+  "host": "one3430-2.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
