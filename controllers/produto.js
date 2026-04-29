@@ -2,7 +2,8 @@
 const Produto = require('../models/produto')
 
 exports.incluir = async (req, res) =>{
-
+    // #swagger.tags = ['Produtos']
+    
     try {
         
         const { codigo, nome } = req.body
@@ -30,6 +31,7 @@ exports.incluir = async (req, res) =>{
 }
 
 exports.listar = async (req, res) =>{   
+    // #swagger.tags = ['Produtos']
 
     try {
         const produtos = await Produto.find();
@@ -43,7 +45,7 @@ exports.listar = async (req, res) =>{
 }
 
 exports.buscar = async (req, res) =>{
-
+    // #swagger.tags = ['Produtos']
     try {
 
         const { codigo } = req.params;
@@ -66,7 +68,7 @@ exports.buscar = async (req, res) =>{
 }
 
 exports.alterar = async (req, res) =>{
- 
+    // #swagger.tags = ['Produtos'] 
     try {
         const { codigo } = req.params;
         const { nome } = req.body;
@@ -90,7 +92,7 @@ exports.alterar = async (req, res) =>{
 }
 
 exports.excluir = async (req, res) =>{  
-
+    // #swagger.tags = ['Produtos']
     try {
         const { codigo } = req.params;
         await Produto.findOneAndDelete({ codigo });

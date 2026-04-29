@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/login', (req, res) => {
+   // #swagger.tags = ['session']    
     const { usuario, senha } = req.body;
 
     req.session.usuario = usuario;
@@ -11,7 +12,7 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/info', (req, res) => {
-
+    // #swagger.tags = ['session']
     if (req.session.logado) {
         res.status(200).send({
             usuario: req.session.usuario,
@@ -24,7 +25,7 @@ router.get('/info', (req, res) => {
 });
 
 router.post('/car', (req, res) => {
-
+// #swagger.tags = ['session']
     const { marca, modelo } = req.body;
     req.session.carro = { marca, modelo };
 
