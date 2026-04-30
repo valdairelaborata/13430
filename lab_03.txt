@@ -1,4 +1,4 @@
 Criar um middleware de autenticação para permitir ou bloquear o acesso às rotas das APIs do seu projeto.
 
-Considere usuário e senha previamente cadastraso no banco.
+Considere usuário e senha previamente cadastrado no banco.
 
