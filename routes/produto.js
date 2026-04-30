@@ -10,6 +10,7 @@ const requestLogger = (req, res, next) => {
 }
 
 const sessionAuth = (req, res, next) => {
+    
     if (req.session.logado) {
         next(); 
     }
