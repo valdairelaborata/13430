@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
+const jwt = require('jsonwebtoken');    
+
+
 router.post('/login', (req, res) => {
    // #swagger.tags = ['session']    
     const { usuario, senha } = req.body;
@@ -9,6 +12,22 @@ router.post('/login', (req, res) => {
     req.session.logado = true;
 
     res.status(201).send(`Usuário ${usuario} logado com sucesso!`);
+});
+
+router.post('/login-jwt', (req, res) => {
+    // #swagger.tags = ['session']
+    const { usuario, senha } = req.body;
+   
+    if (usuario && senha) {
+        // validar usário e senha no banco de dados (aqui é só um exemplo simples)
+            
+        const token = jwt.sign({ usuario }, 'secreto', { expiresIn: '1h' });
+
+
+        res.status(200).send({ token });
+    } else {
+        res.status(401).send('Credenciais inválidas');
+    }
 });
 
 router.get('/info', (req, res) => {

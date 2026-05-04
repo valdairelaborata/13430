@@ -1,5 +1,8 @@
 const express = require('express')
 
+const jwt = require('jsonwebtoken')
+
+
 var router = express.Router();
 
 var controller = require('../controllers/produto')
@@ -19,8 +22,30 @@ const sessionAuth = (req, res, next) => {
     }   
 }
 
+const jwtAuth = (req, res, next) => {
+
+    const authHeader = req.headers.authorization;
+    if (authHeader) {
+        const token = authHeader.split(' ')[1];
+        console.log('Token recebido:', token); // Log do token recebido
+
+        try {
+            const user = jwt.verify(token, 'secreto');
+            req.user = user;
+            next(); 
+        } catch (error) {
+            return res.status(403).send('Token inválido');
+        }
+    }
+    else {
+        console.log('Nenhum token encontrado no cabeçalho Authorization');
+        res.status(401).send('Não autorizado');
+    }
+}
+
 router.use(requestLogger)
-router.use(sessionAuth)
+// router.use(sessionAuth)
+router.use(jwtAuth)
 
 
 router.post('/',  controller.incluir)
